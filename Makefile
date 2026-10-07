@@ -23,3 +23,6 @@ test: build
 
 clean:
 	rm -rf $(OUT_DIR)
+
+count: build ## count files in source directory
+	@find $(SRC_DIR) -maxdepth 1 -name '*.txt' | wc -l
