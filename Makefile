@@ -24,5 +24,9 @@ test: build
 clean:
 	rm -rf $(OUT_DIR)
 
-count: build ## count files in source directory
-	@find $(SRC_DIR) -maxdepth 1 -name '*.txt' | wc -l
+count: build ## report source files and built words
+	@ls -1 $(SRC_DIR)/*.txt | wc -l
+	@wc -w $(OUTPUTS) | tail -1
+# count: see section 5 of the README
+# OUTPUTS is set by the wildcard above
+# run 'make help' for all targets
